@@ -183,6 +183,72 @@ result_tabulation
 # print("R-squared (R²):", r_squared)
 
 """
+**Outliers:**
+
+Outliers are data points that significantly differ from the majority of the data in a dataset. They are observations that appear to be inconsistent with the rest of the data and can distort the results of statistical analyses. Outliers can occur for various reasons, including measurement errors, data entry errors, or the presence of rare events. Identifying and handling outliers is crucial in data analysis to ensure that statistical models and analyses are robust and accurate.
+
+**Common Techniques for Handling Outliers:**
+
+1. **Identification and Removal:**
+   - Identify outliers using statistical methods, such as the z-score or the IQR (Interquartile Range).
+   - Remove or filter out outliers from the dataset. This approach is appropriate when outliers are believed to be the result of errors and should not influence the analysis.
+
+2. **Transformation:**
+   - Apply data transformations, such as logarithmic or square root transformations, to reduce the impact of outliers. Transformations can help make the data more normally distributed.
+
+3. **Imputation:**
+   - Instead of removing outliers, impute or replace their values with more reasonable estimates. This is commonly used when outliers are believed to be valid data points.
+
+4. **Data Binning:**
+   - Divide the data into bins or intervals and categorize the values in each bin. This can help reduce the impact of extreme values, especially in machine learning models.
+
+5. **Clustering:**
+   - Use clustering methods to identify and group data points. Outliers may form clusters of their own, making them easier to detect.
+
+6. **Visualizations:**
+    - Plot the data to visualize and identify outliers. Tools like box plots and scatter plots are helpful for this purpose.
+
+7. **Expert Knowledge:**
+    - Use domain knowledge or consult experts to determine whether an observation is a valid outlier or a meaningful data point.
+
+The choice of outlier handling technique depends on the nature of the data and the goals of the analysis. It's important to carefully consider the implications of each method and the specific context in which the data is being analyzed.
+"""
+"""
+**Correlation:**
+
+Correlation is a statistical measure that quantifies the extent to which two variables are related or associated. In other words, it assesses whether and to what degree changes in one variable coincide with changes in another. Correlation does not imply causation, but it helps to identify relationships between variables in data.
+
+**Pearson's Correlation (Pearson's r):**
+
+Pearson's correlation, often denoted as Pearson's "r," is one of the most widely used methods to measure the strength and direction of a linear relationship between two continuous (numeric) variables. It is a specific type of correlation coefficient. Pearson's r ranges from -1 to 1:
+
+- **Positive correlation (r > 0):** When one variable increases, the other tends to increase as well. It implies a direct linear relationship.
+
+- **Negative correlation (r < 0):** When one variable increases, the other tends to decrease. It implies an inverse linear relationship.
+
+- **No correlation (r = 0):** There's no linear relationship between the variables.
+
+The formula for Pearson's correlation coefficient is:
+
+\[r = \frac{\sum{(X_i - \bar{X})(Y_i - \bar{Y})}}{\sqrt{\sum{(X_i - \bar{X})^2}\sum{(Y_i - \bar{Y})^2}}}\]
+
+Where:
+- \(r\) is the Pearson correlation coefficient.
+- \(X_i\) and \(Y_i\) are individual data points in the two variables.
+- \(\bar{X}\) and \(\bar{Y}\) are the means (average) of the variables X and Y.
+
+**Key Points:**
+
+- Pearson's correlation is specifically designed for linear relationships; it may not capture nonlinear associations.
+- It's sensitive to outliers, which can affect the results.
+- The range of Pearson's r is from -1 (perfect negative correlation) to 1 (perfect positive correlation).
+- A correlation of 0 indicates no linear relationship.
+- Positive values indicate that the two variables move together, while negative values indicate they move in opposite directions.
+- Pearson's correlation is widely used in fields such as statistics, economics, and social sciences to analyze relationships between variables.
+
+Pearson's correlation is just one type of correlation coefficient. Depending on the data and the nature of the relationship, other correlation measures, such as Spearman's rank correlation or Kendall's tau, might be more appropriate. These measures are used when the relationship between variables is not strictly linear or when you're working with ranked or ordinal data.
+"""
+"""
 1. **Mean Error (ME)**:
    - **Definition**: The mean error measures the average difference between the observed (actual) values and the predicted (estimated) values.
    - **Mathematical Expression**: ME = Σ (actual - predicted) / N, where N is the number of data points.
