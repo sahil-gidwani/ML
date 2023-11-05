@@ -156,3 +156,157 @@ result_tabulation = result_tabulation.append(full_metrics, ignore_index = True)
 
 # Print the result table
 result_tabulation
+
+# # Calculate Mean Error
+# mean_error = np.mean(y_test - y_pred_rf)
+
+# # Calculate Mean Absolute Error
+# mean_absolute_error = np.mean(np.abs(y_test - y_pred_rf))
+
+# # Calculate Mean Squared Error
+# mean_squared_error = np.mean((y_test - y_pred_rf) ** 2)
+
+# # Calculate Root Mean Squared Error
+# root_mean_squared_error = np.sqrt(mean_squared_error)
+
+# # Calculate R-squared (R²)
+# residuals = y_test - y_pred_rf
+# total_sum_of_squares = np.sum((y_test - np.mean(y_test)) ** 2)
+# explained_sum_of_squares = np.sum((y_pred_rf - np.mean(y_test)) ** 2)
+# r_squared = 1 - (np.sum(residuals ** 2) / total_sum_of_squares)
+
+# # Print the results
+# print("Mean Error:", mean_error)
+# print("Mean Absolute Error (MAE):", mean_absolute_error)
+# print("Mean Squared Error (MSE):", mean_squared_error)
+# print("Root Mean Squared Error (RMSE):", root_mean_squared_error)
+# print("R-squared (R²):", r_squared)
+
+"""
+1. **Mean Error (ME)**:
+   - **Definition**: The mean error measures the average difference between the observed (actual) values and the predicted (estimated) values.
+   - **Mathematical Expression**: ME = Σ (actual - predicted) / N, where N is the number of data points.
+   - **Interpretation**: A mean error of zero indicates that, on average, the predicted values match the actual values perfectly.
+
+2. **Mean Absolute Error (MAE)**:
+   - **Definition**: The mean absolute error calculates the average of the absolute differences between actual and predicted values.
+   - **Mathematical Expression**: MAE = Σ |actual - predicted| / N.
+   - **Interpretation**: MAE is easy to understand and gives equal weight to all errors.
+
+3. **Mean Squared Error (MSE)**:
+   - **Definition**: The mean squared error calculates the average of the squared differences between actual and predicted values.
+   - **Mathematical Expression**: MSE = Σ (actual - predicted)^2 / N.
+   - **Interpretation**: MSE emphasizes larger errors due to the squaring operation, making it more sensitive to outliers.
+
+4. **Root Mean Squared Error (RMSE)**:
+   - **Definition**: The root mean squared error is the square root of the mean squared error.
+   - **Mathematical Expression**: RMSE = √(MSE).
+   - **Interpretation**: RMSE provides the same unit of measurement as the dependent variable, making it easier to interpret than MSE.
+
+5. **R-squared (R²)**:
+   - **Definition**: R-squared, or the coefficient of determination, measures the proportion of the variance in the dependent variable that is predictable from the independent variables.
+   - **Mathematical Expression**: R² = 1 - (SSR / SST), where SSR is the sum of squared residuals (Σ (actual - predicted)^2) and SST is the total sum of squares (Σ (actual - mean)^2).
+   - **Interpretation**: R² ranges from 0 to 1, with higher values indicating a better fit. An R² of 1 means that all variability is explained by the model, while an R² of 0 indicates that the model doesn't explain any variability.
+
+Each of these evaluation metrics serves a specific purpose:
+
+- **ME** provides the average error, but it doesn't account for the direction (overestimation or underestimation).
+- **MAE** gives the average absolute error, making it robust against outliers.
+- **MSE** emphasizes larger errors and is widely used in optimization algorithms.
+- **RMSE** provides the error in the same units as the dependent variable and is more interpretable than MSE.
+- **R²** measures how well the model explains the variability in the data. It is useful for understanding the goodness of fit.
+
+The choice of which metric to use depends on the specific problem, the nature of the data, and the goals of the analysis. Often, a combination of these metrics is used to gain a comprehensive understanding of model performance.
+"""
+"""
+Linear regression is a fundamental statistical and machine learning technique used for predicting a continuous outcome variable (dependent variable) based on one or more independent variables (predictors or features). It establishes a linear relationship between the predictor variables and the target variable. Here's a detailed explanation of linear regression:
+
+**1. Basic Concept:**
+   - Linear regression is a supervised learning algorithm for regression tasks.
+   - It assumes a linear relationship between the independent variables and the dependent variable.
+
+**2. Simple and Multiple Linear Regression:**
+   - In simple linear regression, there's only one predictor variable (X) to predict the target variable (Y).
+   - In multiple linear regression, there are multiple predictor variables (X1, X2, X3, ...) to predict the target variable (Y).
+
+**3. Linear Relationship:**
+   - The core assumption of linear regression is that the relationship between the predictor variables and the target variable is linear, which can be represented as: `Y = β0 + β1 * X1 + β2 * X2 + ... + βn * Xn`, where Y is the target variable, β0 is the intercept, β1, β2, ..., βn are the coefficients, and X1, X2, ..., Xn are the predictor variables.
+
+**4. Model Parameters:**
+   - The coefficients (β0, β1, β2, ...) are the model parameters that need to be estimated during the training process.
+
+**5. Training the Model:**
+   - To train a linear regression model, you need a labeled dataset with the target variable and the predictor variables.
+   - The model tries to find the best parameters (coefficients) that minimize the sum of squared differences between predicted and actual values. This process is often called "least squares."
+
+**6. Hypothesis Function:**
+   - The hypothesis function in linear regression is the linear equation itself: `hθ(x) = β0 + β1 * x1 + β2 * x2 + ... + βn * xn`, where hθ(x) is the predicted value.
+
+**7. Model Evaluation:**
+   - After training, you evaluate the model's performance using metrics like Mean Squared Error (MSE), Root Mean Squared Error (RMSE), Mean Absolute Error (MAE), R-squared (R2), and others.
+
+**8. Residuals:**
+   - Residuals are the differences between actual and predicted values. A well-fitted model has small residuals.
+
+**9. Linearity Assumption:**
+   - Linear regression assumes a linear relationship between variables. If this assumption doesn't hold, the model may not perform well.
+
+**10. Multicollinearity:**
+   - Multicollinearity occurs when predictor variables are highly correlated. It can affect the model's ability to distinguish the individual effects of variables.
+
+**11. Outliers:**
+   - Outliers can heavily influence linear regression models, as they have a significant impact on the fit of the regression line.
+
+**12. Overfitting and Underfitting:**
+   - Overfitting occurs when the model is too complex and fits the training data noise. Underfitting occurs when the model is too simple and doesn't capture the underlying patterns.
+
+**13. Regularization:**
+   - L1 (Lasso) and L2 (Ridge) regularization techniques can be applied to linear regression to prevent overfitting.
+
+In summary, linear regression is a straightforward yet powerful tool for modeling relationships between variables. It's widely used in various domains, including economics, finance, healthcare, and more, where predicting numerical outcomes is essential.
+"""
+"""
+Random Forest is a versatile and powerful ensemble learning method in machine learning that can be used for both classification and regression tasks. It's particularly popular because of its high predictive accuracy and robustness. Here's a detailed explanation of Random Forest:
+
+**1. Ensemble Learning:**
+   - Random Forest is an ensemble learning technique that combines multiple decision trees to make predictions. The idea is that by combining multiple models, you can achieve better predictive performance.
+
+**2. Decision Trees:**
+   - Decision trees are the fundamental building blocks of a Random Forest. They're used to split the data into subsets based on the values of the input features. The tree structure resembles a flowchart with nodes and branches.
+
+**3. Randomness in Random Forest:**
+   - The "random" in Random Forest comes from two key sources:
+      - Random Sampling: For each tree in the forest, a random subset (with replacement) of the training data is used. This process is called "Bootstrap Aggregating" or "Bagging."
+      - Random Subset of Features: When constructing each node of the tree, only a random subset of features is considered for splitting. This decorrelates the trees, making them more diverse.
+
+**4. Tree Building:**
+   - For each tree in the forest:
+      - The data is sampled randomly with replacement (Bootstrapping).
+      - A decision tree is constructed on the bootstrapped dataset.
+      - At each node of the tree, only a random subset of features is considered for splitting.
+      - The process continues until a stopping condition is met (e.g., maximum depth is reached).
+
+**5. Voting or Averaging:**
+   - For classification problems, Random Forests use a majority vote among the trees to make predictions. Each tree "votes" for a class, and the class with the most votes is the predicted class.
+   - For regression problems, Random Forests average the output (e.g., mean or median) of the individual trees to make a prediction.
+
+**6. Feature Importance:**
+   - Random Forests provide a measure of feature importance. It calculates how much each feature contributes to the model's performance by looking at the reduction in impurity (e.g., Gini impurity for classification) achieved when using that feature for splitting nodes.
+
+**7. Robustness:**
+   - Random Forests are robust to overfitting, which is a common issue with single decision trees. Combining multiple trees with bootstrapping and random feature selection helps reduce overfitting.
+
+**8. Performance:**
+   - Random Forests typically perform well on a wide range of tasks, especially when there are complex relationships between features and the target variable.
+
+**9. Hyperparameters:**
+   - Random Forests have hyperparameters that can be tuned, such as the number of trees in the forest, the maximum depth of trees, the size of random feature subsets, and more.
+
+**10. Use Cases:**
+   - Random Forests are used in various domains, including classification tasks (e.g., spam detection, medical diagnosis) and regression tasks (e.g., house price prediction).
+
+**11. Python Libraries:**
+   - Popular Python libraries, such as scikit-learn, provide easy-to-use implementations of Random Forests.
+
+In summary, Random Forest is a powerful and versatile machine learning technique that leverages the diversity and randomness of decision trees to make accurate and robust predictions. It's a top choice for many data scientists and machine learning practitioners when faced with predictive modeling tasks.
+"""
