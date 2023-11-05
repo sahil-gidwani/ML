@@ -1,29 +1,41 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+# Define a simple quadratic function
 def f(x):
-   return (x + 3) ** 2
+    return (x + 3) ** 2
 
+# Define the derivative of the quadratic function
 def df(x):
-   return 2 * (x + 3)
+    return 2 * (x + 3)
 
+# Implement the gradient descent algorithm
 def gradient_descent(initial_x, learning_rate, num_iterations):
-   x = initial_x
-   x_history = [x]
+    x = initial_x
+    x_history = [x]
 
-   for i in range(num_iterations):
-       gradient = df(x)
-       x = x - learning_rate * gradient
-       x_history.append(x)
+    # Perform a specified number of iterations
+    for i in range(num_iterations):
+        # Calculate the gradient of the function at the current point
+        gradient = df(x)
+        
+        # Update the current point using the gradient and the learning rate
+        x = x - learning_rate * gradient
 
-   return x, x_history
+        # Store the updated point in the history for visualization
+        x_history.append(x)
 
+    return x, x_history
+
+# Define the initial point, learning rate, and number of iterations
 initial_x = 2
 learning_rate = 0.1
 num_iterations = 50
 
+# Apply gradient descent to find the local minimum
 x, x_history = gradient_descent(initial_x, learning_rate, num_iterations)
 
+# Print the local minimum found by the algorithm
 print("Local minimum: {:.2f}".format(x))
 
 # Create a range of x values to plot
@@ -32,10 +44,10 @@ x_vals = np.linspace(-10, 4, 100)
 # Plot the function f(x)
 plt.plot(x_vals, f(x_vals))
 
-# Plot the values of x at each iteration
+# Plot the values of x at each iteration as red 'x' markers
 plt.plot(x_history, f(np.array(x_history)), 'rx')
 
-# Label the axes and add a title
+# Label the axes and add a title to the plot
 plt.xlabel('x')
 plt.ylabel('f(x)')
 plt.title('Gradient Descent')
