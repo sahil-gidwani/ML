@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """classify-the-email-using-the-binary-classification.ipynb
 
 Classify the email using the binary classification method. Email Spam detection has two states:
