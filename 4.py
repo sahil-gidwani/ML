@@ -18,7 +18,7 @@ def gradient_descent(initial_x, learning_rate, num_iterations):
 
    return x, x_history
 
-initial_x = 0
+initial_x = 2
 learning_rate = 0.1
 num_iterations = 50
 
