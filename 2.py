@@ -105,6 +105,23 @@ C = metrics.confusion_matrix(y_test, y_pred)
 disp = metrics.ConfusionMatrixDisplay(confusion_matrix=C, display_labels=model.classes_)
 disp.plot()
 
+# Logistic Regression Classifier
+from sklearn.linear_model import LogisticRegression
+
+model = LogisticRegression()
+model.fit(x_train, y_train)
+y_pred = model.predict(x_test)
+
+print("Prediction:")
+print(y_pred)
+
+accuracy = metrics.accuracy_score(y_test, y_pred)
+print("Logistic Regression accuracy: ", accuracy)
+
+C = metrics.confusion_matrix(y_test, y_pred)
+disp = metrics.ConfusionMatrixDisplay(confusion_matrix=C, display_labels=model.classes_)
+disp.plot()
+
 # [[TN  FP]
 #  [FN  TP]]
 
@@ -226,4 +243,29 @@ Support Vector Machine (SVM) is a supervised machine learning algorithm used for
 - Interpretability: SVMs are less interpretable compared to decision trees or linear regression.
 
 In summary, SVM is a powerful algorithm for both classification and regression tasks, particularly well-suited to problems where data is high-dimensional. It finds the optimal hyperplane to maximize the margin between classes, and its flexibility is enhanced by the use of kernel functions. However, SVM requires careful tuning of hyperparameters and can be computationally intensive for large datasets.
+"""
+"""
+**Logistic regression** is a widely used statistical and machine learning technique for binary classification. It is a part of the generalized linear model (GLM) family and is particularly suitable for predicting the probability that an instance belongs to one of two classes. Here's how logistic regression works:
+
+1. **Binary Classification:** Logistic regression is used when the dependent variable (the one we want to predict) is categorical with two possible outcomes, usually coded as 0 and 1, or as "negative" and "positive."
+
+2. **Sigmoid Function:** Logistic regression models the probability of the binary outcome using the logistic function (also called the sigmoid function). The sigmoid function has an S-shaped curve, which maps any real-valued number to a value between 0 and 1.
+
+   The formula for the sigmoid function is: 
+   [P(Y=1) = {1}/{1 + e^{-(b_0 + b_1X)}}]
+   where:
+   - \(P(Y=1)\) is the probability that the dependent variable \(Y\) is 1.
+   - \(X\) represents the independent variable.
+   - \(b_0\) is the intercept term.
+   - \(b_1\) is the coefficient of the independent variable.
+
+3. **Training the Model:** The goal of logistic regression is to find the best values for the coefficients (\(b_0\) and \(b_1\)) that minimize the error between the predicted probabilities and the actual binary outcomes. This is done through a process called "training."
+
+4. **Maximum Likelihood Estimation:** Logistic regression uses maximum likelihood estimation to estimate the coefficients. It seeks to find the values of the coefficients that maximize the likelihood of observing the given data.
+
+5. **Decision Boundary:** Once the coefficients are determined, a decision boundary is established. This boundary separates the input space into regions corresponding to the two classes, with the probability threshold often set at 0.5. If the predicted probability is greater than or equal to 0.5, the instance is classified as "1"; otherwise, it's classified as "0."
+
+6. **Model Evaluation:** Logistic regression models are evaluated using metrics such as accuracy, precision, recall, F1 score, and the receiver operating characteristic (ROC) curve, among others.
+
+Logistic regression is a simple yet powerful technique for binary classification tasks. It is widely used in various fields, including medicine, economics, social sciences, and machine learning. The logistic regression model can be extended to multiclass classification by using techniques like "one-vs-rest" (OvR) or "softmax" regression.
 """
