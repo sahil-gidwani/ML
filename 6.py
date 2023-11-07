@@ -9,9 +9,11 @@ import seaborn as sns
 df = pd.read_csv("https://raw.githubusercontent.com/sahil-gidwani/ML/main/dataset/sales_data_sample.csv", encoding="latin")
 df
 
+sns.heatmap(df.corr())
+
 df.dtypes
 
-X = df.iloc[:, [3,4]].values
+X = df.iloc[:, [1,4]].values
 
 df.describe()
 
