@@ -30,3 +30,15 @@ df['writing_score']=df['writing_score'].astype('int64')
 df['placement_score']=df['placement_score'].astype('int64')
 df['club_join_date']=df['club_join_date'].astype('int64')
 df['placement_offer_count']=df['placement_offer_count'].astype('int64')
+
+z_scores = np.abs(stats.zscore(data))
+threshold = 3 # Define a threshold for considering data points as outliers
+outlier_indices = np.where(z_scores > threshold)
+data_no_outliers = data[(z_scores <= threshold)]
+
+Q1 = df['math_score'].quantile(0.25)
+Q3 = df['math_score'].quantile(0.75)
+IQR = Q3 - Q1
+lower_lim = Q1 - 1.5*IQR
+upper_lim = Q3 + 1.5*IQR
+outliers = df[(df['math_score'] < lower_limit) | (df['math_score'] > upper_limit)]
