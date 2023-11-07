@@ -26,6 +26,7 @@ df['club_join_date'] = df['club_join_date'].replace(to_replace=np.nan,value='201
 df['placement_offer_count']=df['placement_offer_count'].fillna('1')
 
 df['placement_offer_count']=df['placement_offer_count'].astype('int64')
+df.pickup_datetime = pd.to_datetime(df.pickup_datetime)
 
 z_scores = np.abs(stats.zscore(data))
 threshold = 3 # Define a threshold for considering data points as outliers
