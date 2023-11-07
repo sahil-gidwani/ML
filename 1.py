@@ -125,6 +125,14 @@ rf.fit(x_train, y_train)
 y_pred_rf = rf.predict(x_test)
 print(y_pred_rf)
 
+from sklearn.tree import DecisionTreeRegressor
+
+dt = DecisionTreeRegressor()
+dt.fit(x_train, y_train)
+
+y_pred_dt = dt.predict(x_test)
+print(y_pred_dt)
+
 # 5. Evaluate the models and compare their respective scores like R2, RMSE, etc
 cols = ['Model', 'RMSE', 'R-Squared']
 
@@ -149,6 +157,15 @@ rf_RMSE = np.sqrt(metrics.mean_squared_error(y_test, y_pred_rf))
 rf_squared = r2_score(y_test, y_pred_rf)
 
 full_metrics = pd.Series({'Model': "Random Forest ", 'RMSE': rf_RMSE, 'R-Squared': rf_squared})
+# append our result table using append()
+# ignore_index=True: does not use the index labels
+# python can only append a Series if ignore_index=True or if the Series has a name
+result_tabulation = result_tabulation.append(full_metrics, ignore_index = True)
+
+dt_RMSE = np.sqrt(metrics.mean_squared_error(y_test, y_pred_dt))
+dt_squared = r2_score(y_test, y_pred_dt)
+
+full_metrics = pd.Series({'Model': "Decision Tree", 'RMSE': rf_RMSE, 'R-Squared': rf_squared})
 # append our result table using append()
 # ignore_index=True: does not use the index labels
 # python can only append a Series if ignore_index=True or if the Series has a name
@@ -375,4 +392,29 @@ Random Forest is a versatile and powerful ensemble learning method in machine le
    - Popular Python libraries, such as scikit-learn, provide easy-to-use implementations of Random Forests.
 
 In summary, Random Forest is a powerful and versatile machine learning technique that leverages the diversity and randomness of decision trees to make accurate and robust predictions. It's a top choice for many data scientists and machine learning practitioners when faced with predictive modeling tasks.
+"""
+"""
+A Decision Tree is a supervised machine learning algorithm that is used for both classification and regression tasks. It works by recursively partitioning the dataset into subsets or subgroups based on the most significant attribute at each node. The goal is to create a tree-like model where each internal node represents a decision based on a feature, and each leaf node represents the output or a class label.
+
+Here's how a Decision Tree works:
+
+1. **Feature Selection**: The algorithm begins by selecting the most appropriate feature (or attribute) from the dataset. It chooses the feature that best splits the data into distinct classes or groups. The selection process is based on metrics like Gini impurity, information gain, or mean squared error, depending on whether it's a classification or regression problem.
+
+2. **Splitting Nodes**: The selected feature is used to split the dataset into two or more homogeneous subsets. Each subset represents a branch or node in the tree. The algorithm continues this process recursively for each node, selecting the best feature to split that subset of data.
+
+3. **Stopping Criteria**: The process of selecting and splitting continues until a stopping criterion is met. This criterion could be the maximum depth of the tree, a minimum number of samples in a leaf node, or when further splitting does not significantly improve the model's performance.
+
+4. **Leaf Nodes**: When the stopping criterion is met, the algorithm assigns a class label (in the case of classification) or a predicted value (in the case of regression) to each leaf node. These labels or values are used to make predictions for new, unseen data.
+
+Advantages of Decision Trees:
+- Easy to interpret and visualize: You can easily follow the decision path and understand how a prediction is made.
+- Can handle both numerical and categorical data.
+- Can be used for classification and regression tasks.
+
+Disadvantages of Decision Trees:
+- Prone to overfitting: Complex trees can capture noise in the data.
+- May not perform well on small datasets.
+- Limited expressiveness: For certain complex relationships, a single decision tree may not be sufficient.
+
+To summarize, Decision Trees are a versatile and interpretable machine learning algorithm used for making decisions and predictions by recursively splitting the data based on the most relevant features. They are the building blocks of more advanced ensemble models like Random Forests and Gradient Boosting.
 """
