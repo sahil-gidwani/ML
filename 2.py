@@ -88,6 +88,10 @@ disp.plot()
 
 # SVM Classifier
 model = SVC()
+# model = SVC(kernel='linear')
+# model = SVC(kernel='rbf')  # By default, it uses the 'rbf' kernel
+# model = SVC(kernel='poly', degree=3)  # 3rd-degree polynomial kernel
+# model = SVC(kernel='sigmoid')
 model.fit(x_train, y_train)
 y_pred = model.predict(x_test)
 
